@@ -1,0 +1,18 @@
+{
+  "name" : "frdl/oid2weid",
+  "license" : "MIT",
+  "repositories": [{
+    "type": "composer",
+    "url": "https://packages.frdl.de"
+  }],
+ "authors": [
+        {
+            "name": "Daniel Marschall",
+            "homepage": "https://www.viathinksoft.com",
+            "role": "Developer"
+        }
+    ],
+  "autoload": {
+        "classmap": ["src/"]
+  }
+}
