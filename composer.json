@@ -1,5 +1,6 @@
 {
   "name" : "frdl/oid2weid",
+  "description" : "OID 2 WEID Konverter",
   "license" : "MIT",
   "repositories": [{
     "type": "composer",
