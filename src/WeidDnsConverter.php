@@ -2,7 +2,15 @@
 
 class WeidDnsConverter
 {
-  	public static function weid2dns(&$weid, $namespace='weid:', $base='9-DNS-7') {
+	public static function host2dns(string $host):array {
+	  return array_reverse(explode('.', $host));	
+	}
+	
+	public static function dns2host(array $dns):string {
+	   return implode('.', array_reverse($host=));	
+	}
+	
+  	public static function weid2host(&$weid, $namespace='weid:', $base='9-DNS-7'):string {
 		if (stripos($weid, $namespace) !== 0)  return false; // wrong namespace
       
 		$weid = explode(':', $weid, 2)[1]; // remove namespace
@@ -20,18 +28,18 @@ class WeidDnsConverter
 		foreach ($elements as &$arc) {
 			 
 		//	$arc = strtoupper(self::base_convert_bigint($arc, 36, 10));
-        $arc = strtolower($arc);
+                   $arc = strtolower($arc);
 		}
-		$dnsstr = implode('.', array_reverse($elements));
+		$host = implode('.', array_reverse($elements));
 
-		return $dnsstr;
+		return $host;
 	}
 
-	public static function dns2weid($dns, $namespace='weid:', $base='9-DNS-7') {
-		$elements = array_reverse(explode('.', $dns));
+	public static function host2weid($host, $namespace='weid:', $base='9-DNS-7'):string {
+		$elements = array_reverse(explode('.', $host));
 		foreach ($elements as &$arc) {
 		//			$arc = strtoupper(self::base_convert_bigint($arc, 10, 36));
-      	$arc = strtoupper($arc);
+                	$arc = strtoupper($arc);
 		}
 		$weidstr = implode('-', $elements);
 
