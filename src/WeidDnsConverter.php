@@ -7,7 +7,7 @@ class WeidDnsConverter
 	}
 	
 	public static function dns2host(array $dns):string {
-	   return implode('.', array_reverse($host=));	
+	   return implode('.', array_reverse($dns));	
 	}
 	
   	public static function weid2host(&$weid, $namespace='weid:', $base='9-DNS-7'):string {
