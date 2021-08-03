@@ -17,7 +17,7 @@ class WeidDnsConverter
 
 		$elements = array_merge(explode('-', $base), explode('-', $weid));
 		$actual_checksum = array_pop($elements);
-		$expected_checksum = self::weLuhnGetCheckDigit(implode('-',$elements));
+		$expected_checksum = WeidHelper::weLuhnGetCheckDigit(implode('-',$elements));
 		if ($actual_checksum !== '?') {
 			if ($actual_checksum !== $expected_checksum) return false; // wrong checksum
 		} else {
@@ -45,7 +45,7 @@ class WeidDnsConverter
 
 		if (stripos($weidstr.'-', $base.'-') !== 0) return false; // wrong base
 
-		return $namespace . substr($weidstr.'-'.self::weLuhnGetCheckDigit($weidstr), strlen($base.'-'));
+		return $namespace . substr($weidstr.'-'.WeidHelper::weLuhnGetCheckDigit($weidstr), strlen($base.'-'));
 	}
   
 }
