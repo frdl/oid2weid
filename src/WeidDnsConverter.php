@@ -52,8 +52,8 @@ class WeidDnsConverter
 		}
 		$weidstr =substr($base,0,strlen($base)-2).'-'. implode('-', $elements);		 
 
-		return $namespace . ':'.$weidstr
-			    . '-'.\WeidHelper::weLuhnGetCheckDigit($weidstr);
+		return trim($namespace . ':'.$weidstr
+			    . '-'.\WeidHelper::weLuhnGetCheckDigit($weidstr), ': ');
 	}
   
 }
